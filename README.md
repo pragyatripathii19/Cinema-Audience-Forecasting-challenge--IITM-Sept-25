@@ -1,5 +1,7 @@
 # 🎬 Cinema Audience Forecasting Challenge (IITM Kaggle)
 
+RANK : 17 out of 2,632 participants!
+
 This repository contains my work for the **IIT Madras Kaggle Competition - Cinema Audience Forecasting**, where the task is to **predict daily theatre audience counts across multiple locations** using a mix of **POS transactions (CinePOS)** and **online booking trends (BookNow)**.
 
 ---
