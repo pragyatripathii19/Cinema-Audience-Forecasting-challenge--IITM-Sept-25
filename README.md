@@ -4,7 +4,7 @@
 
 **🏆 Final Rank:** **17 / 2,632 participants**
 
-**📅 Duration:** 2 Months
+**📅 Duration:** 3 Months
 
 **🎯 Objective:** Predict daily audience counts for **827 theatres** across India.
 
