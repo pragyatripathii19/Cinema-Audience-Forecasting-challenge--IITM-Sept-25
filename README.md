@@ -1,56 +1,61 @@
-# 🎬 Cinema Audience Forecasting Challenge (IITM Kaggle)
+# 🎬 Cinema Audience Forecasting Challenge
 
-RANK : 17 out of 2,632 participants!
+### *(IITM – Kaggle Tournament)*
 
-This repository contains my work for the **IIT Madras Kaggle Competition - Cinema Audience Forecasting**, where the task is to **predict daily theatre audience counts across multiple locations** using a mix of **POS transactions (CinePOS)** and **online booking trends (BookNow)**.
+**🏆 Final Rank:** **17 / 2,632 participants**
+**📅 Duration:** 2 Months
+**🎯 Objective:** Predict daily audience counts for **827 theatres** across India.
+
+This repository includes the **baseline notebook**, the **final high-scoring solution**, and all **original datasets** used during the competition.
 
 ---
 
 ## 📌 Problem Statement
-Forecast **daily audience attendance** for theatres across India. The challenge combines multiple data sources and requires handling seasonality, holidays, location features, and booking behaviors.  
 
-Audience counts can vary based on:
-- 📅 Weekends & holidays  
-- 🏛 Theatre type & location  
-- 🎟 Booking channel trends (POS vs Online)  
-- 🔒 Theatre closures on certain days  
+Forecast **daily audience attendance** using multi-source data, combining:
 
----
+* BookNow platform visits & bookings
+* Theatre metadata
+* Calendar features (weekday, weekend, holidays)
+* Historical audience behaviour
 
-## 📂 Dataset
-The dataset provided on Kaggle consists of the following files:
-
-- `cinePOS_theaters.csv` → CinePOS theatre info  
-- `booknow_theaters.csv` → BookNow theatre info  
-- `movie_theater_id_relation.csv` → Mapping between BookNow and CinePOS theatres  
-- `cinePOS_booking.csv` → CinePOS bookings  
-- `booknow_booking.csv` → BookNow bookings  
-- `booknow_visits.csv` → Daily audience counts  
-- `date_info.csv` → Calendar info (holidays, weekdays, etc.)  
-- `sample_submission.csv` → Submission format (`ID = book_theater_id + show_date`)  
+This forms a **panel time-series forecasting** problem with strong seasonality, structural shifts, and theatre-level variability.
 
 ---
 
-## ⚙️ Approach
-1. **Data Preprocessing**
-   - Merging CinePOS and BookNow data using theatre mapping.  
-   - Handling missing days and zero-audience theatres.  
-   - Feature engineering from `date_info` (holiday flags, day-of-week, seasonality).  
+## 📂 Dataset Overview
 
-2. **Exploratory Analysis**
-   - Audience trends across weekdays vs weekends.  
-   - Seasonality effects (festivals, holidays).  
-   - Theatre-wise booking distribution.  
+The original Kaggle dataset consisted of seven CSVs:
 
-3. **Modeling**
-   - Time-series models (Prophet, ARIMA, Exponential Smoothing).  
-   - Machine learning regressors (XGBoost, LightGBM, CatBoost).  
-   - Hybrid approaches combining calendar features with booking data.  
-
-4. **Evaluation**
-   - Predictions submitted in required Kaggle format.  
-   - Scoring based on **forecast accuracy of audience counts**.  
+* `cinePOS_theaters.csv` – CinePOS theatre metadata
+* `booknow_theaters.csv` – BookNow theatre metadata
+* `movie_theater_id_relation.csv` – Mapping between CinePOS and BookNow theatres
+* `cinePOS_booking.csv` – CinePOS bookings
+* `booknow_booking.csv` – BookNow bookings
+* `booknow_visits.csv` – Daily audience counts
+* `date_info.csv` – Calendar information
+* `sample_submission.csv` – Submission ID structure
 
 ---
 
+## ⚙️ Solution Approach (For Baseline Submission)
 
+* Cleaned and explored each dataset individually
+* Merged relevant files into a unified modeling dataframe
+* Performed **time-based train/validation split**
+* Experimented with multiple ML models
+  (GBR, LightGBM, XGBoost, Random Forest)
+* Applied **RandomizedSearchCV** for hyperparameter tuning
+* Retrained the best model on the **full dataset**
+* Created the final predictions in the required submission format
+
+---
+
+## 📝 Full Project Write-Up
+
+A detailed end-to-end explanation of the entire workflow is available here:
+
+**👉 Medium Blog:**
+[https://medium.com/@pragyatripathii19/lights-camera-prediction-forecasting-cinema-audiences-with-machine-learning-ae752f417fa0](https://medium.com/@pragyatripathii19/lights-camera-prediction-forecasting-cinema-audiences-with-machine-learning-ae752f417fa0)
+
+---
