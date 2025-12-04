@@ -3,7 +3,9 @@
 ### *(IITM – Kaggle Tournament)*
 
 **🏆 Final Rank:** **17 / 2,632 participants**
+
 **📅 Duration:** 2 Months
+
 **🎯 Objective:** Predict daily audience counts for **827 theatres** across India.
 
 This repository includes the **baseline notebook**, the **final high-scoring solution**, and all **original datasets** used during the competition.
