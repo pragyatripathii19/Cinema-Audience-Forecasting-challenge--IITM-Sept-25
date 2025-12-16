@@ -1,122 +1,110 @@
 # 🎬 Cinema Audience Forecasting Challenge
 
-### *IIT Madras – Kaggle Tournament*
+**IIT Madras – Kaggle Tournament**
 
-🏆 **Final Rank:** **17 / 2,632 participants**
+🏆 **Final Rank: 17 / 2,632 participants**
 
 📅 **Duration:** 3 Months
 
-🎯 **Objective:** Forecast daily audience counts for **827 theatres across India**
-
-This project represents a **fully end-to-end machine learning pipeline**, built from scratch using **multiple raw data sources**, as part of a competitive IIT Madras–hosted Kaggle challenge.
+🎯 **Objective:** Forecast daily audience counts for **826+ cinemas** across India
 
 ---
 
-## 📌 Problem Overview
+## 🚀 Project Summary
 
-The task was to predict **daily cinema audience attendance** by integrating data from multiple platforms and sources, including bookings, website visits, theatre metadata, and calendar information.
+An **end-to-end machine learning project** built from scratch as part of an IIT Madras–hosted Kaggle competition.
+The task involved predicting daily cinema footfall using **messy, multi-source real-world data**, requiring careful data selection, feature engineering, and time-aware modeling.
 
-This is a **panel time-series forecasting problem** involving:
-
-* Strong seasonality
-* Theatre-level heterogeneity
-* Platform-level structural differences
-* Temporal shifts around weekends and holidays
+This project secured a **Top-20 finish** in a highly competitive leaderboard.
 
 ---
 
-## 📂 Dataset Overview (Raw & Multi-Source)
+## 🔍 Problem Framing
 
-The competition dataset consisted of **7+ CSV files**, each serving a distinct purpose:
+* Multi-theatre **panel time-series forecasting**
+* Strong **weekly seasonality**
+* Theatre-level behavior differences
+* Structural shift due to **platform expansion** (mid-2023)
 
-* `cinePOS_theaters.csv` – CinePOS theatre metadata
-* `booknow_theaters.csv` – BookNow theatre metadata
-* `movie_theater_id_relation.csv` – Mapping between CinePOS & BookNow IDs
-* `cinePOS_booking.csv` – CinePOS booking transactions
-* `booknow_booking.csv` – BookNow booking transactions
-* `booknow_visits.csv` – Daily audience counts
-* `date_info.csv` – Calendar features (weekday, weekend, holidays)
-* `sample_submission.csv` – Submission format reference
-
-➡️ All datasets were **cleaned, merged, and engineered manually** to create a unified modeling table.
+Key insight:
+📌 Audience spikes were **supply-driven (new theatres)**, while **weekly viewing behavior remained stable and predictable**.
 
 ---
 
-## ⚙️ End-to-End Solution Approach
+## 🧠 Data & Feature Engineering
 
-### 1️⃣ Data Preparation
+* Started with **7+ raw CSV files**
+* After extensive experimentation, retained **only the most predictive sources**:
 
-* Cleaned each dataset independently
-* Resolved theatre ID mappings across platforms
-* Handled missing values and inconsistencies
-* Created calendar-based and lag-based features
+  * Daily audience counts
+  * Booking activity trends
+  * Calendar features (day, week, month)
+* Built a unified modeling table using **time-safe left joins**
+
+**Core features:**
+
+* Lag features (1, 7, 14 days)
+* Rolling means (7, 14 days)
+* Weekend indicators
+* Theatre-level encoded identifiers
+
+Final dataset: **213K+ rows × 12 features**
 
 ---
 
-### 2️⃣ Feature Engineering
+## ⚙️ Modeling Approach
 
-* Aggregated historical booking and visit patterns
-* Generated time-based features (day, week, holiday indicators)
-* Constructed theatre-level behavioral signals
-
----
-
-### 3️⃣ Model Development
-
-* Time-aware train–validation split
+* Time-based train–validation split
 * Evaluated multiple models:
 
-  * Gradient Boosting Regressor
-  * Random Forest
+  * Gradient Boosting
   * LightGBM
   * XGBoost
-* Hyperparameter tuning using **RandomizedSearchCV**
+  * Random Forest
+  * Linear baselines
+* Hyperparameter tuning via **RandomizedSearchCV**
 
----
-
-### 4️⃣ Final Model & Submission
-
-* Selected best-performing model based on validation performance
-* Retrained on full training data
-* Generated predictions in the required submission format
+🏆 **Best Model:** Tuned Gradient Boosting
+Chosen for strongest generalization and leaderboard performance
 
 ---
 
 ## 📊 Results
 
-* 🏆 **Final Rank:** **17 / 2,632**
-* Demonstrated strong generalization across theatres and time periods
-* Competitive performance despite high variance and seasonality in data
+* **Final Rank:** 17 / 2,632
+* Robust performance across unseen theatres and future dates
+* Successfully handled seasonality, noise, and platform-level shifts
 
 ---
 
 ## 📁 Repository Structure
 
-* `Cinema_Dataset/` – Complete raw dataset (all CSV files)
-* `CompleteCodeNotebook_IITM.ipynb` – Full end-to-end solution
-* `HighestScoringNotebook_Code.ipynb` – Final optimized notebook with the exact modeling pipeline and tuning strategy used for the Rank 17 submission. 
-* `README.md` – Project overview and methodology
+* `Cinema_Dataset/` – Complete raw dataset
+* `CompleteCodeNotebook_IITM.ipynb` – Full end-to-end pipeline
+* `HighestScoringNotebook_Code.ipynb` – Optimized notebook used for the **Rank 17 submission**
+* `README.md` – Project overview
 
 ---
 
-## 📝 Full Project Walkthrough
+## 📝 Detailed Walkthrough
 
-A detailed explanation of the full pipeline, design choices, and learnings is available here:
-
-👉 **[Lights, Camera, Prediction: Forecasting Cinema Audiences with Machine Learning](https://medium.com/@pragyatripathii19/lights-camera-prediction-forecasting-cinema-audiences-with-machine-learning-ae752f417fa0)**
+👉 **Full project explanation & insights:**
+**[Lights, Camera, Prediction: Forecasting Cinema Audiences with Machine Learning](https://medium.com/@pragyatripathii19/lights-camera-prediction-forecasting-cinema-audiences-with-machine-learning-ae752f417fa0)**
 
 ---
 
-## 🔑 Why This Project Matters
+## 🔑 Why This Project Stands Out
 
-* ✔ Built from **raw, multi-source data**
-* ✔ Demonstrates **end-to-end ML ownership**
-* ✔ Goes beyond toy datasets or clean CSVs
-* ✔ Mirrors real-world forecasting challenges
+✔ Built from raw, multi-source data
+✔ Clear time-series reasoning
+✔ Strong feature engineering focus
+✔ Competitive, ranked ML solution
+✔ Mirrors real-world forecasting challenges
 
 ---
 
 ### ⚠️ Disclaimer
 
-This project was completed as part of a competitive academic challenge.
-All data was provided for learning and evaluation purposes only.
+Completed as part of an academic Kaggle competition. Data used solely for learning and evaluation purposes.
+
+---
