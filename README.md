@@ -3,7 +3,9 @@
 ### *IIT Madras – Kaggle Tournament*
 
 🏆 **Final Rank:** **17 / 2,632 participants**
+
 📅 **Duration:** 3 Months
+
 🎯 **Objective:** Forecast daily audience counts for **827 theatres across India**
 
 This project represents a **fully end-to-end machine learning pipeline**, built from scratch using **multiple raw data sources**, as part of a competitive IIT Madras–hosted Kaggle challenge.
