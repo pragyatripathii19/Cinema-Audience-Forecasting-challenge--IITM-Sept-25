@@ -96,9 +96,13 @@ Chosen for strongest generalization and leaderboard performance
 ## 🔑 Why This Project Stands Out
 
 ✔ Built from raw, multi-source data
+
 ✔ Clear time-series reasoning
+
 ✔ Strong feature engineering focus
+
 ✔ Competitive, ranked ML solution
+
 ✔ Mirrors real-world forecasting challenges
 
 ---
