@@ -13,7 +13,7 @@
 ## 🚀 Project Summary
 
 An **end-to-end machine learning project** built from scratch as part of an IIT Madras–hosted Kaggle competition.
-The task involved predicting daily cinema footfall using **messy, multi-source real-world data**, requiring careful data selection, feature engineering, and time-aware modeling.
+The task involved predicting daily cinema footfall using **messy, multi-source data**, requiring careful data selection, feature engineering, and time-aware modeling.
 
 This project secured a **Top-20 finish** in a highly competitive leaderboard.
 
